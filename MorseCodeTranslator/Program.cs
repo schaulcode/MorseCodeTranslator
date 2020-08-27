@@ -10,12 +10,51 @@ namespace MorseCodeTranslator
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
+            string answer;
+            Console.WriteLine("Morse Code Translator");
+
+            Console.WriteLine("Test 1");
+            answer = MorseCodeTranslator(true,  ".... .- .-.. .-.. ---   .... --- .--   .- .-. .   -.-- --- ..-");
+            Console.WriteLine(answer);
+            Console.WriteLine("Expected: hallo how are you");
+            Test.CheckAnswer(answer, "hallo how are you");
+
+            Console.WriteLine("Test 2");
+            answer = MorseCodeTranslator(false, "Just wanted to know how was you day");
+            Console.WriteLine(answer);
+            Console.WriteLine("Expected: .--- ..- ... -   .-- .- -. - . -..   - ---   -.- -. --- .--   .... --- .--   .-- .- ...   -.-- --- ..-   -.. .- -.--");
+            Test.CheckAnswer(answer, ".--- ..- ... -   .-- .- -. - . -..   - ---   -.- -. --- .--   .... --- .--   .-- .- ...   -.-- --- ..-   -.. .- -.--");
+
+
             Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            
+        }
+
+        static string MorseCodeTranslator(bool MorseToEnglish, string textToTranslate)
+        {
+
+            string translatedText = "";
+            if(MorseToEnglish == true)
+            {
+                translatedText = Translator.MorseToEnglish(textToTranslate);
+            }
+            else
+            {
+                translatedText = Translator.EnglishToMorse(textToTranslate);
+            }
+
+            return translatedText;
         }
     }
+    class Validation
+    {
+        public static bool MorseCodeValidation(string morseCode)
+        {
+
+        }
+    }
+
 }
+
+
